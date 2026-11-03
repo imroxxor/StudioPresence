@@ -9,14 +9,14 @@ function activityCreator:Get()
 	local RunService = game:GetService("RunService")
 
 	local description = "Developing"
-	local editing = "StudioPresence by iArxic"
+	local editing = "StudioPresence"
 	local imageKey = "studio"
 	local smallImageKey, smallImageDesc = "none", "none"
 	local lineText
 
 	-- Playtesting mode - StudioService doesn't exist during playtest
 	if RunService:IsRunning() then
-		editing = "StudioPresence by iArxic"
+		editing = "StudioPresence"
 		description = "Testing"
 		imageKey = "studio"
 		smallImageKey = "playtesticon"
@@ -56,12 +56,12 @@ function activityCreator:Get()
 
 			local lineCount = doc:GetLineCount()
 
-			description = string.format("%s (Line %d / %d)", activeScript.Name, cursorLine, lineCount)
+			description = string.format("%s (%d lines)", activeScript.Name, lineCount)
 		else
 			-- Fallback to editor/source line count if document isn't open
 			local text = ScriptEditorService:GetEditorSource(activeScript) or activeScript.Source or ""
 			local lines = #string.split(text, "\n")
-			description = string.format("%s (%d lines)", activeScript.Name, lines)
+			description = activeScript.Name
 		end
 
 		-- script type -> image/label (kept from your cleaned version)
