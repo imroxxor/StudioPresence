@@ -28,7 +28,7 @@
     "outputPath": "release"
   },
   "private": true,
-  "repository": "github:iArxic/StudioPresence",
+  "repository": "github:imroxxor/StudioPresence",
   "scripts": {
     "build:server": "rimraf dist/server && ncc build src/server/index.ts -o dist/server",
     "dev:server": "ncc build src/server/index.ts -o dist/server -w",

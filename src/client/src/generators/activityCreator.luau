@@ -56,7 +56,7 @@ function activityCreator:Get()
 
 			local lineCount = doc:GetLineCount()
 
-			description = string.format("%s (%d lines)", activeScript.Name, lineCount)
+			description = string.format("%s (Line %d)", activeScript.Name, cursorLine)
 		else
 			-- Fallback to editor/source line count if document isn't open
 			local text = ScriptEditorService:GetEditorSource(activeScript) or activeScript.Source or ""
